@@ -1,6 +1,11 @@
-from django.views.generic import TemplateView
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import View
+from django.shortcuts import render
+from .forms import SearchForm
 
-class IndexView(LoginRequiredMixin, TemplateView):
-  template_name = "app/index.html"
-  login_url = '/accounts/login/'
+class IndexView(View):
+  def get(self, request, *args, **kwargs):
+    form = SearchForm(request.POST or None)
+
+    return render(request, 'app/index.html', {
+      'form': form
+    })
