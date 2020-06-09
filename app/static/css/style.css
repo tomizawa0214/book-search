@@ -85,3 +85,8 @@ body {
 .form-label-group input {
   border-radius: 2rem;
 }
+
+.booklist img {
+  height: 200px;
+  object-fit: contain;
+}
